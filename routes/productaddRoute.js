@@ -7,12 +7,11 @@ const uplodeFileMiddleWare = require("../middleware/uplodeFile");
 const router = express.Router();
 
 router.post(
-  "/",
+  "/add",
   uplodeFileMiddleWare,
   productAddController.createProductAddController
 );
-// router.post("/login", userController.login);
 
-// router.get("/me", veryfyToken, userController.getMe);
+router.get("/get", productAddController.getProducts);
 
 module.exports = router;

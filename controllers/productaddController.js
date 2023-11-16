@@ -1,9 +1,12 @@
-const { createproductAddService } = require("../services/productAddService");
+const {
+  createproductAddService,
+  getProductService,
+} = require("../services/productAddService");
 
 exports.createProductAddController = async (req, res, next) => {
   try {
     const imageFile = req.files;
-  
+
     const result = await createproductAddService(req.body, imageFile);
 
     res.status(200).json({
@@ -20,26 +23,26 @@ exports.createProductAddController = async (req, res, next) => {
   }
 };
 
-//   exports.getCommon = async (req, res, next) => {
-//     try {
-//       // const userId = req.user?._id;
-//       const userId = req.body?._id;
-//       console.log(userId);
-//       const { name } = req.params;
-//       const result = await getCommonService(name, userId);
-//       res.status(200).json({
-//         status: "success",
-//         message: "Data get successfully",
-//         data: result,
-//       });
-//     } catch (error) {
-//       res.status(400).json({
-//         status: "error",
-//         message: "Data couldn't get",
-//         error: error.message,
-//       });
-//     }
-//   };
+exports.getProducts = async (req, res, next) => {
+  try {
+    // const userId = req.user?._id;
+    // const userId = req.body?._id;
+    // console.log(userId);
+    // const { name } = req.params;
+    const result = await getProductService(req.query);
+    res.status(200).json({
+      status: "success",
+      message: "Data get successfully",
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "error",
+      message: "Data couldn't get",
+      error: error.message,
+    });
+  }
+};
 
 //   exports.getCommonByID = async (req, res, next) => {
 //     try {

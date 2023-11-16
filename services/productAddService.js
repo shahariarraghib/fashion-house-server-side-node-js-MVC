@@ -27,7 +27,7 @@ const fs = require("fs");
 
 exports.createproductAddService = async (bodyData, imageFiles) => {
   try {
-    // console.log(bodyData, imageFiles);
+    console.log(bodyData.productCategoryMaleFemaleandBaby);
     // Initialize an array to store the image data and content types.
     const images = [];
     const productDetailArrayValue = [];
@@ -54,16 +54,24 @@ exports.createproductAddService = async (bodyData, imageFiles) => {
       }
     }
 
-    // console.log(productDetails);
-    // Create the product with the 'images' array.
     const result = await addProduct.create({
       images: images, // This will store an array of image data and content types.
       name: bodyData.name,
       productDetails: productDetailArrayValue,
+      price: bodyData.price,
+      description: bodyData.description,
+      productMaterials: bodyData.productMaterials,
+      productCategoryMaleFemaleandBaby:
+        bodyData.productCategoryMaleFemaleandBaby,
     });
     return result;
   } catch (error) {
     console.error("Error creating product:", error);
     throw error;
   }
+};
+
+exports.getProductService = async (query) => {
+  const result = await addProduct.find(query);
+  return result;
 };

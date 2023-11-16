@@ -28,7 +28,12 @@ const uplodeFileMiddleWare = (req, res, next) => {
 
     // Validate file types and sizes
     images?.forEach((file) => {
-      const allowedTypes = ["image/jpeg", "image/png", "image/JPG"];
+      const allowedTypes = [
+        "image/jpeg",
+        "image/png",
+        "image/JPG",
+        "image/webp",
+      ];
       const maxSize = 5 * 1024 * 1024; // 5MB
 
       if (!allowedTypes.includes(file.mimetype)) {

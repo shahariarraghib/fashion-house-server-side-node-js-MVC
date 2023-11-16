@@ -25,7 +25,7 @@ const productAddRoute = require("./routes/productaddRoute");
 // const companyRoute = require("./routes/companyAccount.route");
 
 app.use("/user", userRoute);
-app.use("/productadd", productAddRoute);
+app.use("/product", productAddRoute);
 // app.use("/app/v1/employee", employeeRoute);
 // app.use("/app/v1/company", companyRoute);
 
