@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-const allowedOrigins = ["http://localhost:3000"];
+const allowedOrigins = ["https://fashion-house-client-side-nextjs.vercel.app"];
 const corsOptions = {
   origin: (origin, callback) => {
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
